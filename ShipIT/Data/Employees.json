@@ -2,24 +2,28 @@
   {
     "EmployeeID": 1001,
     "LastName": "Cummings",
-    "FirstName": "Dan"
+    "FirstName": "Dan",
+    "Department":  ""
   },
 
   {
     "EmployeeID": 1002,
     "LastName": "Portman",
-    "FirstName": "Theresa"
+    "FirstName": "Theresa",
+    "Department":  ""
   },
 
   {
     "EmployeeID": 1003,
     "LastName": "Armstrong",
-    "FirstName": "John"
+    "FirstName": "John",
+    "Department":  ""
   },
 
   {
     "EmployeeID": 1004,
     "LastName": "Bratsman",
-    "FirstName":  "Dayne"
+    "FirstName": "Dayne",
+    "Department":  ""
   }
 ]

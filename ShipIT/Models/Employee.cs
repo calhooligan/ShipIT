@@ -19,6 +19,8 @@ namespace ShipIT.Models
 
         public string Department { get; set; }
 
+        public ICollection<Shipment> Shipments { get; set; }
+
         #endregion
     }
 }

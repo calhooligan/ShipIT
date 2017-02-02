@@ -15,17 +15,9 @@ namespace ShipIT.Models
 
         public DateTime DateShipped { get; set; }
 
-        //public string Item { get; set; } ?
+        public Employee Shipper { get; set;  }
 
-        //public string ItemDescription { get; set; } ?
-
-        public string OriginatorName { get; set; }
-
-        public string OriginatorDept { get; set; }
-
-        public string DestinationName { get; set; }
-
-        public string DestinationDept { get; set; }
+        public Employee Receiver { get; set; }
 
         #endregion
     }
