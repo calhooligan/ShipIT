@@ -3,27 +3,31 @@
     "EmployeeID": 1001,
     "LastName": "Cummings",
     "FirstName": "Dan",
-    "Department":  ""
+    "Department": "",
+    "Shipments": []
   },
 
   {
     "EmployeeID": 1002,
     "LastName": "Portman",
     "FirstName": "Theresa",
-    "Department":  ""
+    "Department": "",
+    "Shipments": []
   },
 
   {
     "EmployeeID": 1003,
     "LastName": "Armstrong",
     "FirstName": "John",
-    "Department":  ""
+    "Department": "",
+    "Shipments": []
   },
 
   {
     "EmployeeID": 1004,
     "LastName": "Bratsman",
     "FirstName": "Dayne",
-    "Department":  ""
+    "Department": "",
+    "Shipments": []
   }
 ]

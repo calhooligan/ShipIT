@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeShipment.cs" />
     <Compile Include="Models\Shipment.cs" />
     <Compile Include="Views\Shipping.xaml.cs">
       <DependentUpon>Shipping.xaml</DependentUpon>
@@ -96,6 +97,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Data\Employees.json" />
+    <None Include="Data\EmployeeShipment.json" />
     <None Include="Data\Shipments.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
