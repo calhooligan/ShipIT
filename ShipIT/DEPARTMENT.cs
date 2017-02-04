@@ -10,20 +10,20 @@
 namespace ShipIT
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class DEPARTMENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DEPARTMENT()
         {
-            this.EMPLOYEEs = new HashSet<EMPLOYEE>();
+            this.EMPLOYEEs = new ObservableCollection<EMPLOYEE>();
         }
     
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPLOYEE> EMPLOYEEs { get; set; }
+        public virtual ObservableCollection<EMPLOYEE> EMPLOYEEs { get; set; }
     }
 }

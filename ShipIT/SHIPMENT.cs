@@ -10,14 +10,19 @@
 namespace ShipIT
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     
     public partial class SHIPMENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SHIPMENT()
         {
-            this.EMPLOYEEs = new HashSet<EMPLOYEE>();
+
+            //this.EMPLOYEEs = new ObservableCollection<EMPLOYEE>();
+
+            //new code
+            this.Shipper = new EMPLOYEE();
+            this.Receiver = new EMPLOYEE();
         }
     
         public int ShipmentId { get; set; }
@@ -26,6 +31,10 @@ namespace ShipIT
         public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMPLOYEE> EMPLOYEEs { get; set; }
+        //public virtual ObservableCollection<EMPLOYEE> EMPLOYEEs { get; set; }
+
+        //new code
+        public virtual EMPLOYEE Shipper { get; set; }
+        public virtual EMPLOYEE Receiver { get; set; }
     }
 }
