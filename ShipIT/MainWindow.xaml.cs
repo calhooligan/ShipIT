@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.Entity;
+using ShipIT.Views;
 
 namespace ShipIT
 {
@@ -26,18 +26,17 @@ namespace ShipIT
             InitializeComponent();
         }
 
+        //Highlights listview item when selected
         void Item_GotFocus(object sender, RoutedEventArgs e)
         {
             ListViewItem item = sender as ListViewItem;
             this.lvShipments.SelectedItem = item.DataContext;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
-            System.Windows.Data.CollectionViewSource sHIPMENTViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("sHIPMENTViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // sHIPMENTViewSource.Source = [generic data source]
+            Create create = new Create();
+            create.Show();
         }
     }
 }

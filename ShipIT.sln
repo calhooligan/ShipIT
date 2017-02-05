@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipIT", "ShipIT\ShipIT.csproj", "{650435D4-92D2-4C0D-9149-DA0421D370AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipIT", "ShipIT\ShipIT.csproj", "{220B5769-CC51-4FE8-B9FD-7B0BFECECAE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{650435D4-92D2-4C0D-9149-DA0421D370AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{650435D4-92D2-4C0D-9149-DA0421D370AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{650435D4-92D2-4C0D-9149-DA0421D370AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{650435D4-92D2-4C0D-9149-DA0421D370AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220B5769-CC51-4FE8-B9FD-7B0BFECECAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220B5769-CC51-4FE8-B9FD-7B0BFECECAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220B5769-CC51-4FE8-B9FD-7B0BFECECAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220B5769-CC51-4FE8-B9FD-7B0BFECECAE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

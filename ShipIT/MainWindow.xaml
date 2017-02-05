@@ -4,88 +4,91 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShipIT"
+        xmlns:c="clr-namespace:ShipIT.ViewModels"
         mc:Ignorable="d"
-        Title="ShipIT" Height="425" Width="1000" Loaded="Window_Loaded">
+        Title="ShipIT" Height="500" Width="1000">
+
     <Window.Resources>
-        <CollectionViewSource x:Key="sHIPMENTViewSource" d:DesignSource="{d:DesignInstance {x:Type local:SHIPMENT}, CreateList=True}"/>
+        <c:ShipmentViewModel x:Key="shipments" />
     </Window.Resources>
-
-
-    <Grid Background="White" DataContext="{StaticResource sHIPMENTViewSource}">
-        <Label x:Name="lblMain" Content="Shipments" Foreground="Black" FontFamily="Veranda" FontWeight="Medium" FontSize="16" Padding="27"/>
-        <ListView x:Name="lvShipments" IsSynchronizedWithCurrentItem="True" Margin="27,60,27,78" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding}" SelectedValuePath="DateReceived" SelectionMode="Single">
+    
+    <Grid>
+        <Label x:Name="lblMain" Content="Shipments" Foreground="Black" FontWeight="Bold" FontSize="16" Padding="27"/>
+        <ListView x:Name="lvShipments" Margin="27,60,27,171" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding Shipments, Source={StaticResource shipments}}"  SelectedItem="{Binding SelectedShipment, Mode=TwoWay, Source={StaticResource shipments}, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
+                    <!-- <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" /> -->
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     <EventSetter Event="GotFocus" Handler="Item_GotFocus" />
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Track #" Width="Auto">
+                    <GridViewColumn Header="Track #" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ShipmentId}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding TrackingID, Mode=OneWay}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Status" Width="Auto">
+                    <GridViewColumn Header="Status" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Status}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Date Created" Width="Auto">
+                    <GridViewColumn Header="Date Created" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateShipped.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DateCreated.Date.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Date Delivered" Width="Auto">
+                    <GridViewColumn Header="Date Delivered" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateReceived.Value.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DateDelivered.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Destination Name" Width="Auto">
+                    <GridViewColumn Header="Destination Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Receiver.LastName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DestinationName}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Destination Dept" Width="Auto">
+                    <GridViewColumn Header="Destination Dept" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Receiver.DEPARTMENT.DepartmentName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DestinationDept}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Sender Name" Width="Auto">
+                    <GridViewColumn Header="Sender Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Shipper.LastName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding SenderName}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Sender Dept" Width="Auto">
+                    <GridViewColumn Header="Sender Dept" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Shipper.DEPARTMENT.DepartmentName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding SenderDept}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <!-- <Button Command="{Binding AddCommand, Mode=OneWay, Source={StaticResource employees}}"  x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="805,0,0,39" Width="50" RenderTransformOrigin="2.721,0.554"/> -->
-        <!-- <Button Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource employees}}"  x:Name="btnRemove" Content="Remove" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,27,39" Width="50" /> -->
+        <Button x:Name="btnAdd" Content="Create Shipment" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,128" Width="102" RenderTransformOrigin="2.721,0.554" Height="24" Click="btnAdd_Click" />
+        <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,43" Width="102" Height="24" />
+        <Button x:Name="btnEdit"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,86" RenderTransformOrigin="0.412,0.458"/>
         <!-- TODO -->
         <!-- Display Validation Error -->
-        <!-- <Label Content="{Binding ElementName=LastName, Path=(Validation.Errors).CurrentItem.ErrorContent}" /> -->
-
+        <!-- <Label Content="{Binding ElementName=SenderName, Path=(Validation.Errors).CurrentItem.ErrorContent}" /> -->
     </Grid>
 </Window>

@@ -1,0 +1,23 @@
+﻿[
+  {
+    "TrackingID": "3000",
+    "Status": "Delivered",
+    "DateCreated": "1/2/2017",
+    "DateDelivered": "1/3/2017",
+    "DestinationName": "Jay Johns",
+    "DestinationDept": "Marketing",
+    "Sendername": "Fred James",
+    "SenderDept": "Payroll"
+  },
+
+  {
+    "TrackingID": "3001",
+    "Status": "Ready for Pickup",
+    "DateCreated": "2/1/2017",
+    "DateDelivered": "",
+    "DestinationName": "John Walters",
+    "DestinationDept": "Marketing",
+    "Sendername": "Luisa Haddock",
+    "SenderDept": "Accounting"
+  }
+]
