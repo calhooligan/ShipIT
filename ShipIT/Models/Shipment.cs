@@ -11,12 +11,17 @@ namespace ShipIT.Models
     public class Shipment : INotifyPropertyChanged
     {
 
-        /********************************************************************************
-         *      TODO:
-         *      Constructor for objects not created from JSON file must autofill:
-         *          trackingID, status, and dateShipped
-         * 
-         * ******************************************************************************/
+       /********************************************************************************
+        *      TODO:
+        *      Constructor for objects not created from JSON file must autofill:
+        *          trackingID, status, and dateShipped
+        * 
+        * ******************************************************************************/
+
+        Shipment()
+        {
+           //
+        }
 
         private int trackingID;
         public int TrackingID
