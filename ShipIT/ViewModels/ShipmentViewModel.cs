@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using ShipIT.Commands;
+using ShipIT.Views;
 
 namespace ShipIT.ViewModels
 {
@@ -27,35 +28,76 @@ namespace ShipIT.ViewModels
         #region ViewModel Constructor
         public ShipmentViewModel()
         {
-            //Read embedded JSON
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            StreamReader sr = new StreamReader(assembly.GetManifestResourceStream("ShipIT.Data.Shipments.json"));
+            string jsonFile = GetJsonPath();
+            StreamReader sr = new StreamReader(jsonFile);
             string json = sr.ReadToEnd();
             sr.Close();
 
             if (String.IsNullOrWhiteSpace(json))
             {
                 shipments = new ObservableCollection<Shipment> { new Shipment() };
+                //Write sample data to JSON
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                StreamReader sReader = new StreamReader(assembly.GetManifestResourceStream("ShipIT.Data.Shipments.json"));
+                string jsonData = sReader.ReadToEnd();
+                sr.Close();
+
+                //string newJson = JsonConvert.SerializeObject(jsonData);
+                File.WriteAllText(jsonFile, jsonData);
+
+                //============ Debug Use ==============
+                //MessageBox.Show("")
+                LoadShipmentData();
             }
             else
             {
+                //Load data from JSON
                 LoadShipmentData();
             }
 
             //Commands
             AddCommand = new AddShipmentCmd(this);
             RemoveCommand = new RemoveShipmentCmd(this);
+            OpenCreateCommand = new OpenCreateCmd(this);
         }
         #endregion
 
-        //Load shipment data from embedded JSON file
+        //Load shipment data from local JSON
         public void LoadShipmentData()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            StreamReader sr = new StreamReader(assembly.GetManifestResourceStream("ShipIT.Data.Shipments.json"));
+            string jsonFile = GetJsonPath();
+
+            StreamReader sr = new StreamReader(jsonFile);
             var json = sr.ReadToEnd();
             sr.Close();
+
+            /*********************************************************************************************************
+             *      
+             *      TODO: Find way to have Shipment class detect object creation from JSON.Net so fields are not
+             *              overwritten
+             * 
+             * *******************************************************************************************************/
             shipments = JsonConvert.DeserializeObject<ObservableCollection<Shipment>>(json);
+        }
+
+        public string GetJsonPath()
+        {
+            //Determine directory for JSON storage
+            string folderPath = System.Environment.
+            GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            folderPath = System.IO.Path.Combine(folderPath, "Shipments");
+            Directory.CreateDirectory(folderPath);
+
+            //Return/create JSON file
+            string filePath = System.IO.Path.Combine(folderPath, "shipments.json");
+            if (File.Exists(filePath))
+                return filePath;
+            else
+            {
+                var file = File.Create(filePath);
+                file.Close();
+                return filePath;
+            }
         }
 
         //Tracks currently selected Employee object in listview/collection
@@ -79,13 +121,26 @@ namespace ShipIT.ViewModels
             }
         }
 
+        public ICommand OpenCreateCommand
+        {
+            get;
+            private set;
+        }
+
+        //Open "Create Shipment" window
+        public void openCreateWindow()
+        {
+            Create create = new Create();
+            create.Show();
+        }
+
         public ICommand AddCommand
         {
             get;
             private set;
         }
 
-        // Add shipmentto collection
+        // Add shipment to collection
         public void addShipment()
         {
             shipments.Add(new Shipment());

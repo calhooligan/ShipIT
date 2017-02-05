@@ -10,17 +10,25 @@ namespace ShipIT.Models
 {
     public class Shipment : INotifyPropertyChanged
     {
-        private static int idCounter;
-        private readonly int trackingID;
 
-        public Shipment()
-        {
-            this.trackingID = ++idCounter;
-        }
+        /********************************************************************************
+         *      TODO:
+         *      Constructor for objects not created from JSON file must autofill:
+         *          trackingID, status, and dateShipped
+         * 
+         * ******************************************************************************/
 
+        private int trackingID;
         public int TrackingID
         {
             get { return trackingID; }
+            set
+            {
+                if ( value == trackingID )
+                    return;
+                trackingID = value;
+                OnPropertyChanged();
+            }
         }
 
         private string status;

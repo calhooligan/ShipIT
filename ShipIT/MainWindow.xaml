@@ -84,7 +84,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnAdd" Content="Create Shipment" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,128" Width="102" RenderTransformOrigin="2.721,0.554" Height="24" Click="btnAdd_Click" />
+        <Button x:Name="btnAdd" Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Create Shipment" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,128" Width="102" RenderTransformOrigin="2.721,0.554" Height="24" />
         <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,43" Width="102" Height="24" />
         <Button x:Name="btnEdit"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,86" RenderTransformOrigin="0.412,0.458"/>
         <!-- TODO -->

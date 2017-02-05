@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShipIT.Views"
+        xmlns:c="clr-namespace:ShipIT.ViewModels"
         mc:Ignorable="d"
         Title="ShipIt - Create New Shipment" Height="500" Width="300">
-    <Grid>
+    
+    <Window.Resources>
+        <c:ShipmentViewModel x:Key="shipments" />
+    </Window.Resources>
+    
+    <Grid DataContext="{Binding Shipments/, Source={StaticResource shipments}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="127*"/>
             <RowDefinition Height="242*"/>
@@ -20,7 +26,7 @@
         <TextBox x:Name="txtBxSenderLName" HorizontalAlignment="Left" Height="23" Margin="25,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
         <Label x:Name="lblSenderDept" Content="Sender Department" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
         <TextBox x:Name="txtBxSenderDept" HorizontalAlignment="Left" Height="23" Margin="25,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
-        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="118,218,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="btnSubmit" Command="{Binding AddCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Submit" HorizontalAlignment="Left" Margin="118,218,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="25,218,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Grid.Row="1"/>
     </Grid>
 </Window>
