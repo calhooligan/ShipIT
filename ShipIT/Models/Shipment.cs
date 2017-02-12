@@ -10,7 +10,7 @@ namespace ShipIT.Models
 {
     public class Shipment : INotifyPropertyChanged
     {
-
+        private static int counter = 3002;
        /********************************************************************************
         *      TODO:
         *      Constructor for objects not created from JSON file must autofill:
@@ -18,9 +18,10 @@ namespace ShipIT.Models
         * 
         * ******************************************************************************/
 
-        Shipment()
+        public Shipment()
         {
-           //
+            this.TrackingID = System.Threading.Interlocked.Increment(ref counter);
+            dateCreated = DateTime.Today.ToString();
         }
 
         private int trackingID;
@@ -49,8 +50,8 @@ namespace ShipIT.Models
             }
         }
 
-        private DateTime dateCreated;
-        public DateTime DateCreated
+        private string dateCreated;
+        public string DateCreated
         {
             get { return dateCreated; }
             set
@@ -62,8 +63,8 @@ namespace ShipIT.Models
             }
         }
 
-        private Nullable<DateTime> dateDelivered;
-        public Nullable<DateTime> DateDelivered
+        private string dateDelivered;
+        public string DateDelivered
         {
             get { return dateDelivered; }
             set

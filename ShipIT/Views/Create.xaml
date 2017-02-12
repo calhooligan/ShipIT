@@ -6,27 +6,29 @@
         xmlns:local="clr-namespace:ShipIT.Views"
         xmlns:c="clr-namespace:ShipIT.ViewModels"
         mc:Ignorable="d"
-        Title="ShipIt - Create New Shipment" Height="500" Width="300">
-    
+        Title="ShipIt - Create New Shipment" Height="747" Width="504">
+
     <Window.Resources>
         <c:ShipmentViewModel x:Key="shipments" />
     </Window.Resources>
-    
-    <Grid DataContext="{Binding Shipments/, Source={StaticResource shipments}}">
+
+    <Grid DataContext="{Binding Shipments/, Source={StaticResource shipments}}" Margin="0,0,0,-51">
         <Grid.RowDefinitions>
             <RowDefinition Height="127*"/>
             <RowDefinition Height="242*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblTitle" Content="Create Shipment" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="33" Width="135" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblDestLName" Content="Destination Name" HorizontalAlignment="Left" Margin="25,59,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="lablDestDept" Content="Destination Department" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
-        <Label x:Name="lblSenderLName" Content="Sender Name" HorizontalAlignment="Left" Margin="25,55,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
-        <TextBox x:Name="txtBxDestLName" HorizontalAlignment="Left" Height="23" Margin="25,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
-        <TextBox x:Name="txtBxDestDept" HorizontalAlignment="Left" Height="23" Margin="25,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
-        <TextBox x:Name="txtBxSenderLName" HorizontalAlignment="Left" Height="23" Margin="25,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
-        <Label x:Name="lblSenderDept" Content="Sender Department" HorizontalAlignment="Left" Margin="25,135,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
-        <TextBox x:Name="txtBxSenderDept" HorizontalAlignment="Left" Height="23" Margin="25,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
-        <Button x:Name="btnSubmit" Command="{Binding AddCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Submit" HorizontalAlignment="Left" Margin="118,218,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="25,218,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Grid.Row="1"/>
+        <Label x:Name="lblTitle" Content="Create Shipment" HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top" Height="46" Width="183" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="lblDestLName" Content="Destination Name" HorizontalAlignment="Left" Margin="25,120,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lablDestDept" Content="Destination Department" HorizontalAlignment="Left" Margin="25,200,0,0" VerticalAlignment="Top" Width="146" FontWeight="Bold"/>
+        <Label x:Name="lblSenderLName" Content="Sender Name" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
+        <TextBox x:Name="txtBxDestName" HorizontalAlignment="Left" Height="23" Margin="25,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="" DataContext="{Binding Shipments/DestinationName, Source={StaticResource shipments}}"/>
+        <TextBox x:Name="txtBxDestDept" HorizontalAlignment="Left" Height="23" Margin="25,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"/>
+        <TextBox x:Name="txtBxSenderName" HorizontalAlignment="Left" Height="23" Margin="25,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Row="1"/>
+        <Label x:Name="lblSenderDept" Content="Sender Department" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" RenderTransformOrigin="0.471,1.692"/>
+        <TextBox x:Name="txtBxSenderDept" HorizontalAlignment="Left" Height="23" Margin="25,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Row="1"/>
+        <Button x:Name="btnSubmit" Command="{Binding AddCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Submit" HorizontalAlignment="Left" Margin="167,374,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="25,374,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Grid.Row="1"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="138" Margin="25,214,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"/>
+        <Label x:Name="label" Content="Notes" HorizontalAlignment="Left" Margin="25,183,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" FontWeight="Bold"/>
     </Grid>
 </Window>

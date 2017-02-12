@@ -28,56 +28,56 @@
                     <GridViewColumn Header="Track #" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding TrackingID, Mode=OneWay}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding TrackingID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Status" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Status}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Date Created" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateCreated.Date.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DateCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Date Delivered" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateDelivered.Date, Mode=OneWay}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DateDelivered, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Destination Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DestinationName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DestinationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Destination Dept" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DestinationDept}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding DestinationDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Sender Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SenderName}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding SenderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Sender Dept" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SenderDept}" Margin="-6,0,-6,0" />
+                                <TextBlock Text="{Binding SenderDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

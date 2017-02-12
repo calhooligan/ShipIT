@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ShipIT.Views;
+using ShipIT.ViewModels;
 
 namespace ShipIT
 {
@@ -21,9 +22,16 @@ namespace ShipIT
     /// </summary>
     public partial class MainWindow : Window
     {
+        //private Create createView;
+
         public MainWindow()
         {
             InitializeComponent();
+            //Create createView = new Create();
+            //ShipmentViewModel vm = new ShipmentViewModel();
+            //this.DataContext = vm;
+            //createView.DataContext = vm;
+
         }
 
         //Highlights listview item when selected
@@ -33,10 +41,12 @@ namespace ShipIT
             this.lvShipments.SelectedItem = item.DataContext;
         }
 
+        /*
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Create create = new Create();
-            create.Show();
+            //Create create = new Create();
+            //createView.Show();
         }
+        */
     }
 }
