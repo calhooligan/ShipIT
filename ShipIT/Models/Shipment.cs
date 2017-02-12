@@ -24,6 +24,17 @@ namespace ShipIT.Models
             dateCreated = DateTime.Today.ToString();
         }
 
+        public Shipment(string _senderName, string _senderDept, string _destinationName, string _destinationDept)
+        {
+            this.TrackingID = System.Threading.Interlocked.Increment(ref counter);
+            dateCreated = DateTime.Today.ToString();
+            status = "Ready for Pickup";
+            senderName = _senderName;
+            senderDept = _senderDept;
+            destinationName = _destinationName;
+            destinationDept = _destinationDept;
+        }
+
         private int trackingID;
         public int TrackingID
         {
@@ -131,7 +142,7 @@ namespace ShipIT.Models
         #region Shipment ToString
         public override string ToString()
         {
-            return TrackingID + ", From: " + SenderName + ", To: " + DestinationName;
+            return "Shipment ID: " + TrackingID + ", From: " + SenderName + ", To: " + DestinationName;
         }
         #endregion
 

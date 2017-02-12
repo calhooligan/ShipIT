@@ -141,9 +141,10 @@ namespace ShipIT.ViewModels
         }
 
         // Add shipment to collection
-        public void addShipment()
+        public void addShipment(string _senderName, string _senderDept, string _destinationName, string _destinationDept)
         {
-            shipments.Add(new Shipment());
+            shipments.Add(new Shipment(_senderName, _senderDept, _destinationName, _destinationDept));
+            MessageBox.Show("Employee created!");
         }
 
         public ICommand RemoveCommand

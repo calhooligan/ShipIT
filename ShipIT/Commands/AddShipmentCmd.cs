@@ -31,7 +31,7 @@ namespace ShipIT.Commands
         public void Execute(object parameter)
         {
             //throw new NotImplementedException();
-            viewModel.addShipment();
+            viewModel.addShipment(_senderName, _senderDept, _destinationName, _destinationDept);
         }
     }
 }
