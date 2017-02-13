@@ -56,12 +56,17 @@ namespace ShipIT.ViewModels
             }
 
             //Commands
-            AddCommand = new AddShipmentCmd(this);
-            RemoveCommand = new RemoveShipmentCmd(this);
             OpenCreateCommand = new OpenCreateCmd(this);
+            AddCommand = new AddShipmentCmd(this);
+
+            OpenEditCommand = new OpenEditCmd(this);
+            //EditCommand = new EditShipmentCmd(this);
+
+            RemoveCommand = new RemoveShipmentCmd(this);
         }
         #endregion
 
+        #region Data Source Memebers
         //Load shipment data from local JSON
         public void LoadShipmentData()
         {
@@ -71,12 +76,6 @@ namespace ShipIT.ViewModels
             var json = sr.ReadToEnd();
             sr.Close();
 
-            /*********************************************************************************************************
-             *      
-             *      TODO: Find way to have Shipment class detect object creation from JSON.Net so fields are not
-             *              overwritten
-             * 
-             * *******************************************************************************************************/
             shipments = JsonConvert.DeserializeObject<ObservableCollection<Shipment>>(json);
         }
 
@@ -99,7 +98,9 @@ namespace ShipIT.ViewModels
                 return filePath;
             }
         }
+        #endregion
 
+        #region UI Interaction
         //Tracks currently selected Employee object in listview/collection
         private Shipment selectedShipment;
         public Shipment SelectedShipment
@@ -120,17 +121,23 @@ namespace ShipIT.ViewModels
                 return true;
             }
         }
+        #endregion
 
+        #region New Shipment Members
         public ICommand OpenCreateCommand
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// CHANGE VOID TO SOMETHING ELSE
+        /// </summary>
         //Open "Create Shipment" window
         public void openCreateWindow()
         {
             Create create = new Create();
+            create.DataContext = this;
             create.Show();
         }
 
@@ -141,12 +148,29 @@ namespace ShipIT.ViewModels
         }
 
         // Add shipment to collection
-        public void addShipment(string _senderName, string _senderDept, string _destinationName, string _destinationDept)
+        public void addShipment()
         {
-            shipments.Add(new Shipment(_senderName, _senderDept, _destinationName, _destinationDept));
+            shipments.Add(new Shipment());
             MessageBox.Show("Employee created!");
         }
+        #endregion
 
+        #region Edit Shipment Members
+        public ICommand OpenEditCommand
+        {
+            get;
+            private set;
+        }
+
+        public void openEditWindow()
+        {
+            Edit edit = new Edit();
+            edit.DataContext = this;
+            edit.Show();
+        }
+        #endregion
+
+        #region Remove Shipment Members
         public ICommand RemoveCommand
         {
             get;
@@ -165,7 +189,9 @@ namespace ShipIT.ViewModels
             else
                 MessageBox.Show("No item selected.");
         }
+        #endregion
 
+        #region Save Data
         /// <summary>
         /// CANNOT WRITE TO EMBEDDED SOURCE!!! Rethink JSON placement!!!
         /// </summary>
@@ -182,6 +208,7 @@ namespace ShipIT.ViewModels
             //====== Debug Use =========
             //MessageBox.Show(newJson);
         }*/
+        #endregion
 
         #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;

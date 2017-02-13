@@ -1,17 +1,17 @@
-﻿using System;
+﻿using ShipIT.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShipIT.ViewModels;
 using System.Windows.Input;
 
 namespace ShipIT.Commands
 {
-    class AddShipmentCmd : ICommand
+    class OpenEditCmd : ICommand
     {
         private ShipmentViewModel viewModel;
-        public AddShipmentCmd(ShipmentViewModel _viewModel)
+        public OpenEditCmd(ShipmentViewModel _viewModel)
         {
             this.viewModel = _viewModel;
         }
@@ -31,7 +31,7 @@ namespace ShipIT.Commands
         public void Execute(object parameter)
         {
             //throw new NotImplementedException();
-            viewModel.addShipment();
+            viewModel.openEditWindow();
         }
     }
 }

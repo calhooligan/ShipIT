@@ -11,10 +11,10 @@
     <Window.Resources>
         <c:ShipmentViewModel x:Key="shipments" />
     </Window.Resources>
-    
+
     <Grid>
-        <Label x:Name="lblMain" Content="Shipments" Foreground="Black" FontWeight="Bold" FontSize="16" Padding="27"/>
-        <ListView x:Name="lvShipments" Margin="27,60,27,171" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding Shipments, Source={StaticResource shipments}}"  SelectedItem="{Binding SelectedShipment, Mode=TwoWay, Source={StaticResource shipments}, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
+        <Label x:Name="lblMain" Content="Shipments" Foreground="Black" FontWeight="Bold" FontSize="20" Padding="27"/>
+        <ListView x:Name="lvShipments" Margin="27,104,27,208" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding Shipments, Source={StaticResource shipments}}"  SelectedItem="{Binding SelectedShipment, Mode=TwoWay, Source={StaticResource shipments}, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <!-- <Setter Property="BorderBrush" Value="LightGray" />
@@ -84,9 +84,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnAdd" Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Create Shipment" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,128" Width="102" RenderTransformOrigin="2.721,0.554" Height="24" />
-        <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,43" Width="102" Height="24" />
-        <Button x:Name="btnEdit"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,86" RenderTransformOrigin="0.412,0.458"/>
+        <Button x:Name="btnAdd" Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Create New Shipment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,64,0,0" Width="131" RenderTransformOrigin="2.721,0.554" Height="24" />
+        <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,75" Width="102" Height="24" />
+        <Button x:Name="btnEdit"  Command="{Binding OpenEditCommand, Mode=OneWay, Source={StaticResource shipments}}"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,156" RenderTransformOrigin="0.431,-0.875"/>
+        <Button x:Name="btnUpdate" Content="Update Status" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,117" Width="102" Height="23" />
         <!-- TODO -->
         <!-- Display Validation Error -->
         <!-- <Label Content="{Binding ElementName=SenderName, Path=(Validation.Errors).CurrentItem.ErrorContent}" /> -->
