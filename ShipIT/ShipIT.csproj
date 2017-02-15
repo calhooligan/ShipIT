@@ -63,6 +63,7 @@
     <Compile Include="Commands\EditShipmentCmd.cs" />
     <Compile Include="Commands\OpenCreateCmd.cs" />
     <Compile Include="Commands\OpenEditCmd.cs" />
+    <Compile Include="Commands\OpenUpdateStatusCmd.cs" />
     <Compile Include="Commands\RemoveShipmentCmd.cs" />
     <Compile Include="ViewModels\ShipmentViewModel.cs" />
     <Compile Include="Views\Create.xaml.cs">

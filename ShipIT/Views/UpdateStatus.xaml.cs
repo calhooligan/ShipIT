@@ -23,5 +23,10 @@ namespace ShipIT.Views
         {
             InitializeComponent();
         }
+
+        private void btnStatusCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

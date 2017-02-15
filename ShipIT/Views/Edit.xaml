@@ -4,12 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShipIT.Views"
-        xmlns:c="clr-namespace:ShipIT.ViewModels"
         mc:Ignorable="d"
         Title="ShipIT- Edit Shipment" Height="747" Width="504">
-    <Window.Resources>
-        <c:ShipmentViewModel x:Key="shipments" />
-    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>

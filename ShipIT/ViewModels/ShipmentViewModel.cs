@@ -62,6 +62,8 @@ namespace ShipIT.ViewModels
             OpenEditCommand = new OpenEditCmd(this);
             //EditCommand = new EditShipmentCmd(this);
 
+            OpenUpdateStatusCommand = new OpenUpdateStatusCmd(this);
+
             RemoveCommand = new RemoveShipmentCmd(this);
         }
         #endregion
@@ -130,14 +132,10 @@ namespace ShipIT.ViewModels
             private set;
         }
 
-        /// <summary>
-        /// CHANGE VOID TO SOMETHING ELSE
-        /// </summary>
         //Open "Create Shipment" window
         public void openCreateWindow()
         {
             Create create = new Create();
-            create.DataContext = this;
             create.Show();
         }
 
@@ -165,8 +163,21 @@ namespace ShipIT.ViewModels
         public void openEditWindow()
         {
             Edit edit = new Edit();
-            edit.DataContext = this;
             edit.Show();
+        }
+        #endregion
+
+        #region Update Status Members
+        public ICommand OpenUpdateStatusCommand
+        {
+            get;
+            private set;
+        }
+
+        public void openUpdateStatusWindow()
+        {
+            UpdateStatus status = new UpdateStatus();
+            status.Show();
         }
         #endregion
 

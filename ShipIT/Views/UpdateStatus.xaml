@@ -8,11 +8,11 @@
         Title="ShipIT - Update Shipment Status" Height="300" Width="300">
     <Grid>
         <Label x:Name="lblStatusTrack" Content="Shipment Track Number" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtBxStatusTrack" HorizontalAlignment="Left" Height="23" Margin="10,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBxStatusTrack" Text="{Binding SelectedShipment.TrackingID, Source={StaticResource shipments}}" HorizontalAlignment="Left" Height="23" Margin="10,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <Label x:Name="lblStatusUpdate" Content="Update Shipment Status" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.196,0.121" FontWeight="Bold"/>
         <ComboBox x:Name="cmbBxStatus" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnStatusSave" Content="Save" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnStatusCancel" Content="Cancel" HorizontalAlignment="Left" Margin="117,239,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnStatusSave" Content="Save" HorizontalAlignment="Left" Margin="207,197,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnStatusCancel" Content="Cancel" HorizontalAlignment="Left" Margin="101,197,0,0" VerticalAlignment="Top" Width="75" Click="btnStatusCancel_Click"/>
 
     </Grid>
 </Window>
