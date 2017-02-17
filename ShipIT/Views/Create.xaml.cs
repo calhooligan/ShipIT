@@ -28,5 +28,14 @@ namespace ShipIT.Views
         {
             this.Close();
         }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            txtBxDestName.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            txtBxDestDept.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            txtBxSenderName.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            txtBxSenderDept.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            CreateWindow.Close();
+        }
     }
 }

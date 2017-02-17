@@ -57,7 +57,7 @@ namespace ShipIT.ViewModels
 
             //Commands
             OpenCreateCommand = new OpenCreateCmd(this);
-            AddCommand = new AddShipmentCmd(this);
+            //AddCommand = new AddShipmentCmd(this);
 
             OpenEditCommand = new OpenEditCmd(this);
             //EditCommand = new EditShipmentCmd(this);
@@ -115,6 +115,23 @@ namespace ShipIT.ViewModels
             }
         }
 
+        //Get most recently created shipment
+        private Shipment newestShipment;
+        public Shipment NewestShipment
+        {
+            get
+            {
+                return newestShipment;
+            }
+            set
+            {
+                if (value == shipments.Aggregate((x, y) => x.TrackingID > y.TrackingID ? x : y))
+                    return;
+                newestShipment = shipments.Aggregate((x, y) => x.TrackingID > y.TrackingID ? x : y);
+                OnPropertyChanged();
+            }
+        }
+
         // Controls button accessibility
         public bool CanUpdate
         {
@@ -135,21 +152,24 @@ namespace ShipIT.ViewModels
         //Open "Create Shipment" window
         public void openCreateWindow()
         {
+            addShipment();
             Create create = new Create();
             create.Show();
+            //MessageBox.Show(newestShipment.ToString());
         }
 
+        /*
         public ICommand AddCommand
         {
             get;
             private set;
-        }
+        }*/
 
         // Add shipment to collection
         public void addShipment()
         {
             shipments.Add(new Shipment());
-            MessageBox.Show("Employee created!");
+            newestShipment = shipments.Aggregate((x, y) => x.TrackingID > y.TrackingID ? x : y);
         }
         #endregion
 

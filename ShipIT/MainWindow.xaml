@@ -83,7 +83,7 @@
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,64,0,0" Width="131" RenderTransformOrigin="2.721,0.554" Height="24">                                
             <Hyperlink Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}">Create New Shipment</Hyperlink>
         </TextBlock>
-        <!-- <Button x:Name="btnAdd" Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Create New Shipment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,64,0,0" Width="131" RenderTransformOrigin="2.721,0.554" Height="24" /> -->
+        
         <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,75" Width="102" Height="24" />
         <Button x:Name="btnEdit"  Command="{Binding OpenEditCommand, Mode=OneWay, Source={StaticResource shipments}}"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,156" RenderTransformOrigin="0.431,-0.875"/>
         <Button x:Name="btnUpdate" Command="{Binding OpenUpdateStatusCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Update Status" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,117" Width="102" Height="23" />

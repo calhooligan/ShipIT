@@ -27,11 +27,6 @@ namespace ShipIT
         public MainWindow()
         {
             InitializeComponent();
-            //Create createView = new Create();
-            //ShipmentViewModel vm = new ShipmentViewModel();
-            //this.DataContext = vm;
-            //createView.DataContext = vm;
-
         }
 
         //Highlights listview item when selected
@@ -40,13 +35,5 @@ namespace ShipIT
             ListViewItem item = sender as ListViewItem;
             this.lvShipments.SelectedItem = item.DataContext;
         }
-
-        /*
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            //Create create = new Create();
-            //createView.Show();
-        }
-        */
     }
 }
