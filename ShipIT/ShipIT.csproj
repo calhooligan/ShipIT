@@ -64,7 +64,9 @@
     <Compile Include="Commands\OpenCreateCmd.cs" />
     <Compile Include="Commands\OpenEditCmd.cs" />
     <Compile Include="Commands\OpenUpdateStatusCmd.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\RemoveShipmentCmd.cs" />
+    <Compile Include="Commands\SaveShipmentsCmd.cs" />
     <Compile Include="ViewModels\ShipmentViewModel.cs" />
     <Compile Include="Views\Create.xaml.cs">
       <DependentUpon>Create.xaml</DependentUpon>
@@ -130,7 +132,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

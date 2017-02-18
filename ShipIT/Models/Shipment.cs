@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -21,7 +17,7 @@ namespace ShipIT.Models
         public Shipment()
         {
             this.TrackingID = System.Threading.Interlocked.Increment(ref counter);
-            dateCreated = DateTime.Today.ToString(); //do string manipualtion to get rid of time
+            dateCreated = DateTime.Today.ToShortDateString(); //do string manipualtion to get rid of time
             status = "Ready for Pickup";
         }
 

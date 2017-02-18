@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShipIT"
         mc:Ignorable="d"
-        Title="ShipIT" Height="500" Width="1000">
+        Title="ShipIT" Height="600" Width="1050">
 
     <Grid>
-        <Label x:Name="lblMain" Content="Shipments" Foreground="Black" FontWeight="Bold" FontSize="20" Padding="27"/>
-        <ListView x:Name="lvShipments" Margin="27,104,27,208" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding Shipments, Source={StaticResource shipments}}"  SelectedItem="{Binding SelectedShipment, Mode=TwoWay, Source={StaticResource shipments}, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
+        <Label x:Name="lblMain" Content="Track Shipments" Foreground="Black" FontWeight="Bold" FontSize="24" Padding="27"/>
+        <Image Source="Image1.png" HorizontalAlignment="Right" VerticalAlignment="top" Height="60" Margin="0,28,27,0"/>
+        <ListView x:Name="lvShipments" Margin="27,104,27,306" HorizontalAlignment="Stretch" DisplayMemberPath="DateReceived" ItemsSource="{Binding Shipments, Source={StaticResource shipments}}"  SelectedItem="{Binding SelectedShipment, Mode=TwoWay, Source={StaticResource shipments}, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <!-- <Setter Property="BorderBrush" Value="LightGray" />
                     <Setter Property="BorderThickness" Value="0,0,0,1" /> -->
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
                     <EventSetter Event="GotFocus" Handler="Item_GotFocus" />
                 </Style>
             </ListView.ItemContainerStyle>
@@ -23,70 +25,118 @@
                     <GridViewColumn Header="Track #" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding TrackingID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding TrackingID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Status" Width="100">
+                    <GridViewColumn Header="Status" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Date Created" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding DateCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Date Delivered" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DateDelivered, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding DateDelivered, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Destination Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DestinationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding DestinationName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Destination Dept" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DestinationDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding DestinationDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Sender Name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SenderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,0,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding SenderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Sender Dept" Width="100">
+                    <GridViewColumn Header="Sender Dept" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SenderDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1,1,1,0" Margin="-6,-2,-6,-2">
+                                    <StackPanel Margin="6,2,6,2">
+                                        <TextBlock Text="{Binding SenderDept, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-6,0,-6,0" />
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        
+
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,64,0,0" Width="131" RenderTransformOrigin="2.721,0.554" Height="24">                                
             <Hyperlink Command="{Binding OpenCreateCommand, Mode=OneWay, Source={StaticResource shipments}}">Create New Shipment</Hyperlink>
         </TextBlock>
-        
-        <Button x:Name="btnRemove" Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Cancel Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,75" Width="102" Height="24" />
-        <Button x:Name="btnEdit"  Command="{Binding OpenEditCommand, Mode=OneWay, Source={StaticResource shipments}}"  Content="Edit Selected" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="24" Margin="0,0,54,156" RenderTransformOrigin="0.431,-0.875"/>
-        <Button x:Name="btnUpdate" Command="{Binding OpenUpdateStatusCommand, Mode=OneWay, Source={StaticResource shipments}}" Content="Update Status" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,54,117" Width="102" Height="23" />
+
+        <Button x:Name="btnRemove"
+                Content="Cancel Selected"
+                Command="{Binding RemoveCommand, Mode=OneWay, Source={StaticResource shipments}}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,38,178" Width="102" Height="25" />
+
+        <Button x:Name="btnEdit"
+                Content="Edit Selected"
+                Command="{Binding OpenEditCommand, Mode=OneWay, Source={StaticResource shipments}}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="102" Height="25" Margin="0,0,38,259" RenderTransformOrigin="0.431,-0.875"/>
+
+        <Button x:Name="btnUpdate"
+                Content="Update Status"
+                Command="{Binding OpenUpdateStatusCommand, Mode=OneWay, Source={StaticResource shipments}}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,38,218" Width="102" Height="25" />
+
+        <Button x:Name="btnSave"
+                Content="Save to File"
+                Command="{Binding SaveCommand, Mode=OneWay, Source={StaticResource shipments}}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,38,138" Width="102" Height="25" />
         <!-- TODO -->
         <!-- Display Validation Error -->
         <!-- <Label Content="{Binding ElementName=SenderName, Path=(Validation.Errors).CurrentItem.ErrorContent}" /> -->

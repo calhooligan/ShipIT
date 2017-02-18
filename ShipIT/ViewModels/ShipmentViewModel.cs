@@ -57,14 +57,11 @@ namespace ShipIT.ViewModels
 
             //Commands
             OpenCreateCommand = new OpenCreateCmd(this);
-            //AddCommand = new AddShipmentCmd(this);
-
             OpenEditCommand = new OpenEditCmd(this);
-            //EditCommand = new EditShipmentCmd(this);
-
             OpenUpdateStatusCommand = new OpenUpdateStatusCmd(this);
-
             RemoveCommand = new RemoveShipmentCmd(this);
+            SaveCommand = new SaveShipmentsCmd(this);
+            CancelCommand = new RelayCommand<Window>(this.CancelWindow);
         }
         #endregion
 
@@ -222,23 +219,48 @@ namespace ShipIT.ViewModels
         }
         #endregion
 
-        #region Save Data
-        /// <summary>
-        /// CANNOT WRITE TO EMBEDDED SOURCE!!! Rethink JSON placement!!!
-        /// </summary>
-        /*public void saveShipmentData()
+        public void cancelShipment()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            if (newestShipment != null)
+            {
+                var toCancel = newestShipment.ToString();
+                shipments.Remove(newestShipment);
+            }
+        }
 
-            string jsonFile = assembly.GetFile("ShipIT.Data.Shipments.json");
+        public RelayCommand<Window> CancelCommand
+        {
+            get;
+            private set;
+        }
+
+        private void CancelWindow(Window window)
+        {
+            cancelShipment();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+
+        #region Save Data
+        public ICommand SaveCommand
+        {
+            get;
+            private set;
+        }
+
+        public void saveShipments()
+        {
+            string _jsonFile = GetJsonPath();
             string newJson = JsonConvert.SerializeObject(shipments);
-            File.WriteAllText(jsonFile, newJson);
+            File.WriteAllText(_jsonFile, newJson);
 
-            //MessageBox.Show("Shipment Data Saved!");
+            MessageBox.Show("Shipment Data Saved!");
 
             //====== Debug Use =========
             //MessageBox.Show(newJson);
-        }*/
+        }
         #endregion
 
         #region INotifyPropertyChanged Members

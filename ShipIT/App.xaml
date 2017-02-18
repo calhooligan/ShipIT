@@ -5,6 +5,8 @@
              xmlns:viewModel="clr-namespace:ShipIT.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <viewModel:ShipmentViewModel x:Key="shipments" />
+
     </Application.Resources>
 </Application>
