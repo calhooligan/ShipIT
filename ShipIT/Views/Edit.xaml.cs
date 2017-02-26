@@ -24,6 +24,7 @@ namespace ShipIT.Views
             txtBxEditDestDept.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             txtBxSEditSenderName.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             txtEditBxSenderDept.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            txtBxEditNotes.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             EditWindow.Close();
         }
     }

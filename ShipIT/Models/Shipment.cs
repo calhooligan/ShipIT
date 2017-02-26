@@ -136,6 +136,19 @@ namespace ShipIT.Models
             }
         }
 
+        private string notes;
+        public string Notes
+        {
+            get { return notes; }
+            set
+            {
+                if (value == notes)
+                    return;
+                notes = value;
+                OnPropertyChanged();
+            }
+        }
+
         #region Shipment ToString
         public override string ToString()
         {
